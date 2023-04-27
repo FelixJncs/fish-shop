@@ -1,6 +1,6 @@
 import Product from "../components/Product";
 import { useRouter } from "next/router";
-import { useSWRMutation } from "swr/mutation";
+import { useSWRMutation } from "swr";
 
 export default function ProductDetailsPage({ product }) {
   const {
