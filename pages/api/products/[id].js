@@ -1,6 +1,5 @@
 import dbConnect from "../../../db/connect";
 import Product from "../../../db/models/Product";
-import useSWRMutation from "swr/mutation";
 
 export default async function handler(request, response) {
   await dbConnect();
