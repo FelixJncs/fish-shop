@@ -1,5 +1,6 @@
 import dbConnect from "../../../db/connect";
 import Product from "../../../db/models/Product";
+import useSWRMutation from "swr/mutation";
 
 export default async function handler(request, response) {
   await dbConnect();
@@ -13,5 +14,13 @@ export default async function handler(request, response) {
     }
 
     response.status(200).json(product);
+  }
+  if (request.method === "PUT") {
+    {
+      const product = request.body;
+      await Product.findByIdAndUpdate(id, { $set: request.body });
+
+      response.status(200).json({ status: "Product successfully updated." });
+    }
   }
 }
